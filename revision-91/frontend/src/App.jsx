@@ -13,7 +13,7 @@ function App() {
   function fetchNotes() {
     console.log("hello");
 
-    axios.get('http://localhost:3000/notes')
+    axios.get('https://web-design-1-9nqu.onrender.com/notes')
       .then((res) => {
         setNotes(res.data.note)
   
@@ -28,7 +28,7 @@ function App() {
   function submitHndeler(e) {
     e.preventDefault()
     const { title, description } = e.target.elements
-    axios.post('http://localhost:3000/notes',
+    axios.post('https://web-design-1-9nqu.onrender.com/notes',
       {
         title: title.value,
         description: description.value
@@ -43,7 +43,7 @@ function App() {
   //delete api
   function deleteHandle(noteId) {
 
-    axios.delete('http://localhost:3000/notes/' + noteId)
+    axios.delete('https://web-design-1-9nqu.onrender.com/notes/' + noteId)
 
       .then((res) => {
         console.log(res.data);
@@ -56,7 +56,7 @@ function App() {
 
   function updateHandleTitle(noteId ,newTitle){
     
-    axios.patch('http://localhost:3000/notes/' + noteId , 
+    axios.patch('https://web-design-1-9nqu.onrender.com/notes/' + noteId , 
       {
         title :newTitle,
       })
@@ -64,26 +64,8 @@ function App() {
       fetchNotes()
       setTitle('')
       setDesc('')
-      console.log(res.data.note);
     })
   }
-  function updateHandleDesc(noteId ,newDesc){
-    
-    axios.patch('http://localhost:3000/notes/' + noteId , 
-      {
-        description :newDesc,
-      })
-    .then((res)=>{
-      fetchNotes()
-      setTitle('')
-      setDesc('')
-      console.log(res.data.note);
-    })
-  }
-
- 
-  
-
 
   return (
     <>
@@ -104,11 +86,8 @@ function App() {
             <button className='btn' onClick={()=>{
               updateHandleTitle(note._id ,title)
             }}>Update title</button>
-            <button className='btn' onClick={()=>{
-              updateHandleDesc(note._id ,desc)
-            }}>Update Description</button>
+            
           </div>
-
 
         })}
       </div>
