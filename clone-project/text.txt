@@ -1,0 +1,24 @@
+ ==>Authentication 
+  =>register
+  =>login
+  =>logout
+
+==>post
+=>create
+=>can see feed
+=>like post 
+=>save post
+
+==>user 
+=>follower
+=>following
+
+
+==>user schema
+
+ =>username= String,
+ =>email= String,
+ =>password= String,
+ =>bio= String,
+ =>follower= Array,
+ =>profile_pic= String
